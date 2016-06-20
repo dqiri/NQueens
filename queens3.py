@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import sys
+
 class NQueens(object):
     def __init__(self):
         self.possible = []
@@ -72,7 +74,13 @@ class NQueens(object):
 
 def main():
     nq = NQueens()
-    nq.solveNQueens(12)
+    try:
+        num = 8 if len(sys.argv) != 2 else int(sys.argv[1])
+    except:
+        num = 8
+    if num < 0:
+        num = 8
+    nq.solveNQueens(num)
 
 if __name__ == "__main__":
     main()
