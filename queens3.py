@@ -14,12 +14,14 @@ class NQueens(object):
         print "Total Possible Solutions for {} Queens {}".format(n, len(self.possible))
 
     def makeState(self, n, state):
+        """LeetCode question Format"""
         row = ['.' for __ in range(n)]
         staterino = []
         for s in state:
             new_row = list(row)
             if s != -1:
-                staterino.append("".join(new_row[s]))
+                new_row[s] = 'Q'
+                staterino.append("".join(new_row))
         return staterino
 
     def prettyPrint(self, n, state):
